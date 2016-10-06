@@ -1,12 +1,20 @@
 class BlogsController < ApplicationController
   # authenticate_user!はdive08で追記したよ。dive09でも登場した。
   before_action :authenticate_user!
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  # onlyにshowアクションを追加したよ。dive15
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # @blogs = Blog.all  記事全件を一覧表示するためよ。dive01
   def index
     @blogs = Blog.all
   end
+
+  # showアクションを定義する。入力フォームと一覧を表示するためインスタンスを２つ生成します。
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
+  end
+
 
   # if params[:back]    (name属性付きで)戻るボタン押下されて返ってきたときの挙動をif文で処理です。dive03
   # @blog = Blog.new(blogs_params)    (name属性付きなら)入力した記事をパラメータ保持で、@blogに格納するよ。dive03

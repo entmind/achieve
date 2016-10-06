@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   # :omniauthableを追加したよ。dive14
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
-  has_many :blogs
+  # dive15で追記したよ。「dependent: :destroy」は、Blogモデルが削除されたら紐づくコメントも削除する。
+  has_many :blogs, dependent: :destroy
+  # dive15で追記したよ。コメント機能
+  has_many :comments, dependent: :destroy
   # carrierwave用用の設定設定。dive14で追記したよ。
   mount_uploader :avatar, AvatarUploader
 

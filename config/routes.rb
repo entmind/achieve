@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+#  get 'comments/create'  コントローラー作成時に生成された無用なルーティングなので削除したよ。dive15
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # deviseにomniauthを追加したよ。dive14
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-#  get 'top/index'    # root設定しているので、コントローラー作成時に生成された無用なルーティングは削除します
 
+#  get 'top/index'    # root設定しているので、コントローラー作成時に生成された無用なルーティングは削除します
   get 'contacts' => 'contacts#new'  #dive01課題で追記したよ。
   resources :contacts, only: [:new, :create] do #dive01課題で追記したよ。
     collection do    # dive03課題で追記したよ。
@@ -14,8 +16,13 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'blogs' => 'blogs#index'  # dive01で追記したよ。
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+  # dive01で追記したよ。
+  get 'blogs' => 'blogs#index'
+  # dive15でonlyを削除したよ。only: [:index, :new, :create, :edit, :update, :destroy]
+  # dive15でcommentsを追記したよ。
+  resources :blogs do
+    resources :comments
+    
     collection do
       post :confirm
     end

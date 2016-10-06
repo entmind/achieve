@@ -7,7 +7,10 @@
         <% @blogs.reverse_each do |blog| %>
             <div class="row">
                 <!-- dive09課題で追記したよ。dive14でプロフィール画像を追加したよ。 -->
-                <h4><strong><%= blog.title %></strong></h4>
+                <!-- ブログのタイトルにリンクを設定するよ。dive15 -->
+                <%= link_to blog_path(blog) do %>
+                  <h4><strong><%= blog.title %></strong></h4>
+                <% end %>
                 <div class="user-avatar">
                   <span>ユーザーID：<%= blog.user_id %>&nbsp;&nbsp;ユーザー名：<%= blog.user.name %>&nbsp;&nbsp;ユーザー画像：</span>
                   <% if blog.user.avatar? %>
