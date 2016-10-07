@@ -1,4 +1,6 @@
-<%= form_for([blog,comment]) do |f| %>
+<p id="notice"><%= notice %></p>
+<!--# remote: trueを追記したよ追記したよ。ajaxの設定のため。dive15 -->
+<%= form_for([blog, comment], remote: true) do |f| %>
   <%= f.error_messages! %>
   <%= f.hidden_field :blog_id %>
   <div class="field">

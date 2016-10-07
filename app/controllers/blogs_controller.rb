@@ -74,7 +74,7 @@ class BlogsController < ApplicationController
   # リファクタリングで省略したよ。dive02
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice: "記事を削除しました！"
+    redirect_to blog_path, notice: "記事を削除しました！"
   end
 
 
