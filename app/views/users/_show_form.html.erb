@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>フォローしているユーザー</h3>
+  <% @followed_users.each do |user| %>
+    <div class="container-child col-md-2 col-sm-4 col-xs-6">
+      <div class="user-avatar">
+        <%= profile_img(user) %>
+      </div>
+        <%= user.email %>
+    </div>
+  <% end %>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+
+<div class="container">
+  <h3>フォロワー</h3>
+  <% @followers.each do |user| %>
+    <div class="container-child col-md-2 col-sm-4 col-xs-6">
+      <div class="user-avatar">
+        <%= profile_img(user) %>
+      </div>
+        <%= user.email %>
+    </div>
+  <% end %>
+</div>
