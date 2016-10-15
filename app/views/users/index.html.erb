@@ -8,7 +8,11 @@
       <%= link_to user_path(user) do %>
         <%= user.name %>
       <% end %>
-      <%= render 'follow_form', user: user %>
+
+      <% unless user.id == current_user.id %>      
+        <%= render 'follow_form', user: user %>
+      <% end %>
+        
     </div>
   <% end %>
 </div>
