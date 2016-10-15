@@ -54,6 +54,11 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  # dive14で追記したよ。
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
   
   # dive14で追記したよ。omniauthでサインアップしたアカウントのユーザ情報の変更出来るようにする。
   def update_with_password(params, *options)

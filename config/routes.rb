@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # deviseにomniauthを追加したよ。dive14
   devise_for :users, controllers: {
+    registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
