@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-#  get 'users/show'
-
+  root 'top#index'    # dive04で追記したよ。
   get 'relationships/create'
-
   get 'relationships/destroy'
-
+#  get 'users/show'
 #  get 'users/index'    コントローラー作成時に生成された無用なルーティングなので削除したよ。dive16
-
 #  get 'comments/create'  コントローラー作成時に生成された無用なルーティングなので削除したよ。dive15
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -40,12 +37,11 @@ Rails.application.routes.draw do
                                 # dive02でedit,update,destroyを追加したよ。
                                 # dive03でresources do,collection doと追記したよ。
 
-  root 'top#index'    # dive04で追記したよ。
-
 # dive16で追記したよ。
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :tasks
+  end
   resources :relationships, only: [:create, :destroy]
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

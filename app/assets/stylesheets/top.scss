@@ -19,7 +19,9 @@ header {
     padding-top: 10px;
 }
 
-
+html {
+  overflow-y:scroll;
+}
 
 // bootstrap化により削除だよ。 DIVE05
 // header ul {
@@ -222,4 +224,45 @@ div.container-child {
   padding: 10px 10px 10px 0px;
   border-left: 1px gray groove;
   border-top: 1px gray groove;
+}
+
+// dive17で追記したよ。テキストからではなく、自分で。
+div.task {
+  margin: auto;
+}
+table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.task {
+  overflow: auto;        /*tableをスクロールさせる*/
+  white-space: nowrap;   /*tableのセル内にある文字の折り返しを禁止*/
+}
+.task::-webkit-scrollbar {    /*tableにスクロールバーを追加*/
+  height: 5px;
+}
+.task::-webkit-scrollbar-track {    /*tableにスクロールバーを追加*/
+  background: #F1F1F1;
+}
+.task::-webkit-scrollbar-thumb {    /*tableにスクロールバーを追加*/
+  background: #BCBCBC;
+}
+table.task {
+  width: 80%;
+  border-collapse: collapse;
+}
+table.task th {
+  width: 25%;
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+  color: #333;
+  background-color: #eee;
+  border: 1px solid #b9b9b9;
+}
+table.task td {
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #b9b9b9;
 }
