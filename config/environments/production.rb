@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # 新規追加したよ。dive11
-  config.action_mailer.default_url_options = { host: 'blooming-inlet-44552.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'mighty-waters-18263.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
