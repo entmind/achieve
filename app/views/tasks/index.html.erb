@@ -42,6 +42,8 @@
                   <td><%= "0:未着手(未依頼)" %></td>
                   <% elsif task.status == 1 %>
                   <td><%= "1:未承認" %></td>
+                  <% elsif task.status == 2 %>
+                  <td><%= "2:承認済" %></td>
                   <% elsif task.status == 8 %>
                   <td><%= "8:取消済" %></td>
                   <% elsif task.status == 9 %>
