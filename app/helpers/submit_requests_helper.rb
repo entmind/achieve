@@ -6,7 +6,7 @@ module SubmitRequestsHelper
 		when 2
 			'2:承認済'
 		when 8
-			'8:取消済(編集不可)'
+			'8:取消済'
 		when 9
 			'9:却下'
 		end

@@ -35,8 +35,8 @@
 						<td><%= done_display_name(submit_request.task.done) %></td>
 <!--						<td data-featherlight="#<%= (submit_request.id) %>"><%= link_to 'メッセージ', submit_request_path(submit_request) %></td>-->
 						<% if submit_request.charge_id == current_user.id %>
-							<td><%= link_to '承認', submit_request_approve_path(submit_request), remote: true %></td>
-							<td><%= link_to '却下', submit_request_unapprove_path(submit_request), remote: true %></td>
+							<td><%= link_to '承認', submit_request_approve_path(submit_request), remote: true unless submit_request.status == 8 %></td>
+							<td><%= link_to '却下', submit_request_unapprove_path(submit_request), remote: true unless submit_request.status == 8 %></td>
 						<% end %>
 						<% if submit_request.user_id == current_user.id %>
 								<td><%= link_to '編集', edit_submit_request_path(submit_request) unless submit_request.status == 8 %></td>
