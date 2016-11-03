@@ -23,6 +23,14 @@ html {
   overflow-y:scroll;
 }
 
+// 調整 DIVE18
+a {
+  text-decoration: underline;
+}
+
+
+
+
 // bootstrap化により削除だよ。 DIVE05
 // header ul {
 //     margin: 0 auto;
@@ -228,7 +236,11 @@ div.container-child {
 
 // dive17で追記したよ。テキストからではなく、自分で。
 div.task {
-  margin: auto;
+  margin-right: auto;
+}
+p.task {
+  padding: 20px 0px 10px 0px;
+  text-align: left;
 }
 table {
   width: 100%;
@@ -249,7 +261,7 @@ table {
   background: #BCBCBC;
 }
 table.task {
-  width: 80%;
+  width: 100%;
   border-collapse: collapse;
 }
 table.task th {

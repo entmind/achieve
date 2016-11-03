@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   # dive17で追記したよ。タスク機能
   has_many :tasks, dependent: :destroy
+  has_many :submit_requests, dependent: :destroy
 
   # carrierwave用用の設定設定。dive14で追記したよ。
   mount_uploader :avatar, AvatarUploader
@@ -84,5 +85,9 @@ class User < ActiveRecord::Base
   #  指定のユーザーのフォローを解除する
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
+  end
+  # dive18で追記したよ。「つながっているユーザを取得する」
+  def friend
+    followers & followed_users
   end
 end

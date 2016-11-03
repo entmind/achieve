@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="wrapper col-md-12 col-sm-12">
+	  <p id="notice"><%= notice %></p>
+      <h1>依頼されているタスク</h1>
+				<p><%= link_to '作成したタスクへ戻る', user_submit_requests_path %></p>
+
+			<div class="task">
+				<div class="inbox_list_<%= current_user.id %>" id="inbox_list_<%= current_user.id %>" >
+					<%= render 'submit_requests_list', submit_requests: @submit_requests %>
+				</div>
+        <p class="task">※「承認」もしくは「却下」を押下して、相手に意思を伝えましょう。</p>
+			</div>
+
+	</div>
+</div>

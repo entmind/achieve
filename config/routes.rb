@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
+
   root 'top#index'    # dive04で追記したよ。
   get 'relationships/create'
   get 'relationships/destroy'
-#  get 'users/show'
-#  get 'users/index'    コントローラー作成時に生成された無用なルーティングなので削除したよ。dive16
-#  get 'comments/create'  コントローラー作成時に生成された無用なルーティングなので削除したよ。dive15
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -14,7 +12,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-#  get 'top/index'    # root設定しているので、コントローラー作成時に生成された無用なルーティングは削除します
   get 'contacts' => 'contacts#new'  #dive01課題で追記したよ。
   resources :contacts, only: [:new, :create] do #dive01課題で追記したよ。
     collection do    # dive03課題で追記したよ。
@@ -22,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # dive01で追記したよ。
   get 'blogs' => 'blogs#index'
   # dive15でonlyを削除したよ。only: [:index, :new, :create, :edit, :update, :destroy]
   # dive15でcommentsを追記したよ。
@@ -33,13 +29,19 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-                                # dive01で追記したよ。
-                                # dive02でedit,update,destroyを追加したよ。
-                                # dive03でresources do,collection doと追記したよ。
 
 # dive16で追記したよ。
-  resources :users, only: [:index, :show, :edit, :update] do
+# dive18でも追記したよ。submit_requestsを追記。only: [:index, :show, :edit, :update]から、show,edit,updateを削除。
+  resources :users, only: [:index] do
     resources :tasks
+    resources :submit_requests, shallow: true do
+      get 'approve'
+      get 'unapprove'
+      get 'reject'
+      collection do
+        get 'inbox'
+      end
+    end
   end
   resources :relationships, only: [:create, :destroy]
 

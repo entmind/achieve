@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="wrapper col-md-12 col-sm-12">
+	  <p id="notice"><%= notice %></p>
+      <h1>依頼したタスク</h1>
+        <p><%= link_to "作成したタスク", user_tasks_path(current_user.id) %> | 
+        <%= link_to "依頼したタスク", user_submit_requests_path(current_user) %> | 
+        <%= link_to '自分に依頼されているタスク', inbox_user_submit_requests_path %></p>
+        <p><%= link_to '(1)タスクの作成', new_user_task_path(@user) %> | 
+        <%= link_to "(2)作成したタスクで依頼", new_user_submit_request_path %></p>
+        
+			<div class="task">
+				<div id="submit_requests_<%= current_user.id %>">
+					<%= render 'submit_requests_list', submit_requests: @submit_requests %>
+				</div>
+        <p class="task">※タスクを依頼するには、フォローし合う必要があります。<br>
+        ※「削除」を押下すると、タスク自体は消えませんが、編集できなくなります。</p>
+			</div>
+
+	</div>
+</div>
