@@ -47,8 +47,14 @@ class SubmitRequestsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @submit_request.update(submit_request_params)
+      if @submit_request.status == 2 
+        @submit_request.task.update(charge_id: current_user.id)
+        @submit_request.update(submit_request_params)
+        format.html { redirect_to user_submit_requests_path(current_user.id, @submit_request), notice: '依頼を編集しました。' }
+        format.json { render :show, status: :ok, location: @submit_request }
+      elsif @submit_request.update(submit_request_params)
         @submit_request.task.update(charge_id: submit_request_params[:charge_id])
+        @submit_request.update(submit_request_params)
         format.html { redirect_to user_submit_requests_path(current_user.id, @submit_request), notice: '依頼を編集しました。' }
         format.json { render :show, status: :ok, location: @submit_request }
       else
