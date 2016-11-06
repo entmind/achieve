@@ -5,12 +5,25 @@
       <div class="user-avatar">
         <%= profile_img(user) %>
       </div>
-      <%= link_to users_path(user) do %>
-        <%= user.name %>
-      <% end %>
 
-      <% unless user.id == current_user.id %>      
-        <%= render 'follow_form', user: user %>
+      <%#= link_to users_path(user) do %>
+        <%#= user.name %>
+      <%# end %>
+
+      <%# unless user.id == current_user.id %>      
+        <%#= render 'follow_form', user: user %>
+      <%# end %>
+
+      <% if user.id != current_user.id %>
+        <ul>
+          <li>
+            <div>
+              <%= link_to user.name, users_path %><br>
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+            </div>
+            <%= render partial: 'follow_form', locals: { user: user } if signed_in? %>
+          </li>
+        </ul>
       <% end %>
         
     </div>

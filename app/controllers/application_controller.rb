@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   # before_actionでdeviseのストロングパラメータに、nameカラムを追加するメソッドを実行します。dive08で追記したよ。
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :current_notifications, if: :signed_in?
+
+  def current_notifications
+    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
+  end
 
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
 

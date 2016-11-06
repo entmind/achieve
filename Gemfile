@@ -68,3 +68,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'rmagick'
+# dive19で追記したよ。
+gem 'pusher'

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'top#index'    # dive04で追記したよ。
   get 'relationships/create'
   get 'relationships/destroy'
+  get 'notifications/index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -44,6 +45,11 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
+
+# dive19で追記したよ。
+  resources :conversations do
+    resources :messages
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

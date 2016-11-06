@@ -10,9 +10,11 @@ class BlogsController < ApplicationController
   end
 
   # showアクションを定義する。入力フォームと一覧を表示するためインスタンスを２つ生成します。
+  # dive19_2でnotificationを追加したよ。
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
 
