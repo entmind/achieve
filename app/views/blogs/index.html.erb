@@ -2,7 +2,7 @@
      <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
         <p id="notice"><%= notice %></p>
         <h1>ブログ記事 一覧</h1>
-            <%= link_to "記事を作成する", new_blog_path, class: 'btn btn-block btn-md' %>
+            <%= link_to "記事を作成する", new_blog_path, class: 'btn btn-default btn-md' %>
 
         <% @blogs.reverse_each do |blog| %>
             <div class="row">
