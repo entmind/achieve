@@ -46,6 +46,12 @@ group :development, :test do
   gem 'better_errors'
   # dive14で追記したよ。
   gem 'dotenv-rails'
+  # dive20_2で追記したよ。
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -72,3 +78,4 @@ gem 'rmagick'
 gem 'pusher'
 # dive20_2で追記したよ。
 gem 'fog'
+gem 'unicorn'
