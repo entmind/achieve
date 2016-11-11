@@ -70,3 +70,5 @@ gem 'carrierwave'
 gem 'rmagick'
 # dive19で追記したよ。
 gem 'pusher'
+# dive20_2で追記したよ。
+gem 'fog'
