@@ -1,7 +1,6 @@
 server '52.69.47.192', user: 'app', roles: %w{app db web}
 set :ssh_options, keys: '/Users/MASA/.ssh/id_rsa'
 
-
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
