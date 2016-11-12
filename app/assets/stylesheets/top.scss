@@ -26,7 +26,18 @@ html {
 // 調整 DIVE18
 a {
   text-decoration: underline;
+  color: #000;
+
+  &:visited {
+    color: pink;
+  }
+
+  &:hover {
+    color: pink;
+    background-color: #000;
+  }
 }
+
 
 // bootstrap化により削除だよ。 DIVE05
 // header ul {
