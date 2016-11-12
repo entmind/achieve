@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# dive14で追記したよ。
+# development環境にあったので、外出ししてproductionでも読めるようにした。
+gem 'dotenv-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,8 +48,6 @@ group :development, :test do
   # dive13で追記したよ。
   gem 'pry-rails'
   gem 'better_errors'
-  # dive14で追記したよ。
-  gem 'dotenv-rails'
   # dive20_2で追記したよ。
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
